@@ -1,16 +1,16 @@
 -module(er_table).
 
--export([init/0, add_route/3, get_route/2, remove_route/2]).
+-export([init/0, add_route/4, get_route/2, remove_route/2]).
 
 init() ->
     gb_trees:empty().
 
-add_route(Neigh, Len, Table) ->
-    gb_trees:enter(Neigh, Len, Table).
+add_route(Dest, Neigh, Len, Table) ->
+    gb_trees:enter(Dest, {Neigh, Len}, Table).
 
-get_route(Neigh, Table) ->
-    gb_trees:lookup(Neigh, Table).
+get_route(Dest, Table) ->
+    gb_trees:lookup(Dest, Table).
 
-remove_route(Neigh, Table) ->
-    gb_trees:delete_any(Neigh, Table).
+remove_route(Dest, Table) ->
+    gb_trees:delete_any(Dest, Table).
 

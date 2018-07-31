@@ -21,7 +21,9 @@ clean(Text) ->
     re:replace(Text, "(^\\s+)|(\\s+$)", "", [global,{return,list}]).
 
 main() ->
-    {ok, Device} = file:open("./res/net.top", [read]),
-    Data = process_lines(Device, fun(Line) -> extract_data(Line) end),
-    io:format("~p", [Data]).
+    %%{ok, Device} = file:open("./res/net.top", [read]),
+    %%Data = process_lines(Device, fun(Line) -> extract_data(Line) end),
+    %%io:format("~p", [Data]).
+    Child = spawn(er_node, start, [[]]),
+    Child ! {debug, {get_routes, []}}.
 
