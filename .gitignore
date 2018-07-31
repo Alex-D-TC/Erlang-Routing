@@ -20,4 +20,24 @@ rel/example_project
 !.vscode/extensions.json
 
 
+### Rebar3 ###
+.rebar3
+_*
+.eunit
+*.o
+*.beam
+*.plt
+*.swp
+*.swo
+.erlang.cookie
+ebin
+log
+erl_crash.dump
+.rebar
+logs
+_build
+.idea
+*.iml
+rebar3.crashdump
+
 # End of https://www.gitignore.io/api/erlang,visualstudiocode
